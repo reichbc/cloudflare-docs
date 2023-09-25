@@ -13,6 +13,26 @@ _build:
     $ warp-cli teams-enroll <your-team-name>
     ```
 
+<details>
+<summary>Completing the registration on a CLI-only / headless installation</summary>
+<div>
+
+To complete the registration for a headless client, manually copy the authentication token from the browser to the WARP client:
+
+1. On the Success page, right-click and select **View Page Source**.
+2. Find the HTML metadata tag that contains the token. For example, `<meta http-equiv="refresh" content"=0;url=com.cloudflare.warp://acmecorp.cloudflareaccess.com/auth?token=yeooilknmasdlfnlnsadfojDSFJndf_kjnasdf..." />`
+3. Copy the URL field: `com.cloudflare.warp://<your-team-name>.cloudflareaccess.com/auth?token=<your-token>`
+4. In the terminal, run the following command using the URL obtained in the previous step.
+    ```sh
+    $ warp-cli teams-enroll-token com.cloudflare.warp://<your-team-name>.cloudflareaccess.com/auth?token=<your-token>
+    ```
+5. This completes the headless configuration, and you can proceed to Step 6 below to verify the client is connected.
+
+If you get an API error, then the token has expired. Generate a new one by refreshing the web page and quickly grab the new token from the page source.
+
+</div>
+</details>
+
 4. In the browser window that opens, complete the authentication steps required by your organization.
 
     Once authenticated, you will see a Success page and a dialog prompting you to open a link.

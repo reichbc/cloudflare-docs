@@ -21,27 +21,25 @@ O2O routing also enables you to take advantage of Cloudflare zones specifically 
 For more details about how O2O is different than other Cloudflare setups, refer to [How O2O works](/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/how-it-works/).
 
 ## Enable
+
+An Enterprise zone plan is required for O2O to a Shopify origin.
+
 :::note  
-Setting up Shopify for O2O currently requires a Support ticket due to a temporary limitation in the Cloudflare for SaaS platform.  
+Setting up your zone with O2O with a Shopify origin currently requires a Support Case due to a provider limitation in the Cloudflare for SaaS platform.  
 We are working to improve this experience. Please submit a Support Case to request O2O enablement for your zone.  
 :::  
 
-You can enable O2O on any Cloudflare zone plan.
-
-To enable O2O on your account, [create](/dns/manage-dns-records/how-to/create-dns-records/#create-dns-records) a `CNAME` DNS record.
+Once enabled by Support, set up O2O on your zone by [creating a `CNAME` DNS record.](/dns/manage-dns-records/how-to/create-dns-records/#create-dns-records)
 
 | Type    | Name                 | Target                | Proxy status |
 | ------- | -------------------- | --------------------- | ------------ |
 | `CNAME` | `<YOUR_SHOP_DOMAIN>` | `shops.myshopify.com` | Proxied      |
 
-:::note
+Be sure that you are using `shops.myshopify.com`. Using your store-specific url (for example `trinketstore.myshopify.com`) will not work; it is not the Shopify SaaS domain.
 
-
-For questions about Shopify setup, refer to their [support guide](https://help.shopify.com/en/manual/domains/add-a-domain/connecting-domains/connect-domain-manual).
-
-If you cannot activate your domain using [proxied DNS records](/dns/manage-dns-records/reference/proxied-dns-records/), reach out to your account team or the [Cloudflare Community](https://community.cloudflare.com).
-
-
+:::note  
+For questions about Shopify setup, refer to their [support guide](https://help.shopify.com/en/manual/domains/add-a-domain/connecting-domains/connect-domain-manual).  
+If you cannot activate your domain using [proxied DNS records](/dns/manage-dns-records/reference/proxied-dns-records/), reach out to your account team or the [Cloudflare Community](https://community.cloudflare.com).  
 :::
 
 ## Product compatibility
